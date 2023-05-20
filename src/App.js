@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import NavBar from "./components/navBar";
+import FodPart from "./components/foddpart";
+import Category from "./components/Category";
+import Cards from "./components/Cards";
+import data from "./components/data";
+import { useState } from "react";
 function App() {
+  const [dataItems , setDataItems] = useState(data)
+  const filterByCategory = (cat)=>{
+    const newItemsDataArray = data.filter((itemData)=> itemData.category === cat)
+    if(cat === "الكل"){
+      setDataItems(data)
+    }else{
+      setDataItems(newItemsDataArray)
+    }
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <div className="container">
+        <FodPart/>
+        <Category filterData={filterByCategory}/>
+        <Cards  items={dataItems}/>
+      </div>
     </div>
   );
 }
