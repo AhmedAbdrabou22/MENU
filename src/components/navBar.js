@@ -1,11 +1,19 @@
-import React from 'react'
+import React , {useRef , useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-const NavBar = () => {
+const NavBar = ({filterSearch}) => {
+
+    const [dataName , setDataName] = useState("")
+    // const ele = useRef()
+
+    const searchForProduct = ()=>{
+        // filterSearch(ele.current.value)
+        filterSearch(dataName)
+    }
     return (
         <div>
             <Navbar bg="dark" expand="lg" className='st'>
@@ -27,8 +35,12 @@ const NavBar = () => {
                                 placeholder="ابحث عما تريده"
                                 className="me-2"
                                 aria-label="Search"
+                                //here we can use setState for valu input or ref
+                                onChange={(e)=>setDataName(e.target.value)}
+                                // ref = {ele}
+                                value={dataName}
                             />
-                            <Button className='text-dark bg-light mx-2'>ابحث </Button>
+                            <Button onClick={()=>searchForProduct()} className='text-dark bg-light mx-2'>ابحث </Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>

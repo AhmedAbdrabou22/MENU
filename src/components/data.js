@@ -9,5 +9,6 @@ const data = [
     {id:Math.random() , title:'وجبة افطار' , imgUrl: '3.jpeg' , category:'افطار', discription:'هذه الوجبةاللذيذه ' , price:179},
     {id:Math.random() , title:'وجبة عشاء' , imgUrl: '1.jpg' , category:'عشا', discription:'هذه الوجبةاللذيذه ' , price:153},
     {id:Math.random() , title:'وجبة غداء' , imgUrl: '2.jpg' , category:'غدا', discription:'هذه الوجبةاللذيذه ' , price:65},
+    {id:Math.random() , title:'وجبة سناكس' , imgUrl: '2.jpg' , category:'سناكس', discription:'هذه الوجبةاللذيذه ' , price:65},
 ]
 export default data;
